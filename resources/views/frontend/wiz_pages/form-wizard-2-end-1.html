@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" dir="rtl" data-dir="rtl">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<meta name="description" content="">
+		<meta name="keyword" content="">
+		<meta name="author" content="">
+		<meta name="robots" content="index, follow">
+
+		<meta name="geo.position" content="">
+		<meta name="geo.placename" content="">
+		<meta name="geo.region" content="">
+
+		<meta property="og:type" content=""/>
+		<meta property="og:title" content=""/>
+		<meta property="og:description" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:url" content=""/>
+		<meta property="og:site_name" content=""/>
+
+		<meta name="twitter:title" content="">
+		<meta name="twitter:description" content="">
+		<meta name="twitter:image" content="">
+		<meta name="twitter:site" content="">
+		<meta name="twitter:creator" content="">
+
+		<link rel="canonical" href=""/>
+
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+		<link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
+		<link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+		<link rel="stylesheet" href="assets/css/bootstrap-tagsinput.css">
+		<link rel="stylesheet" href="assets/css/toastr.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<link rel="stylesheet" href="assets/css/custom.css">
+
+		<link rel="shortcut icon" href="assets/img/icon.svg" type="image/x-icon" >
+		<title>Lenobi </title>
+	</head>
+	<body>
+        <!-- navbar-main -->
+        <nav class="navbar navbar-main navbar-expand-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <div class="logo">
+                        <img src="assets/img/logo.svg" alt="logo">
+                    </div>
+                </a>
+
+                <div class="action d-flex align-items-center">
+                    <a href="../auth/login.blade.php" class="btn btn-user mr-md-4 mr-3">
+                        <img src="assets/img/user.svg" class="mr-3" alt="">
+                        <span>כניסה לחשבון</span>
+                    </a>
+
+                    <div class="dropdown user-dropdown d-none">
+                        <a href="#!" class="dropdown-toggle mr-md-4 mr-3" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="user-pic">
+                                <img src="https://image.flaticon.com/icons/png/512/149/149071.png" alt="user-pic">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="#"></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="#"></a>
+                        </div>
+                    </div>
+                    <a href="#!" class="btn-lang" title="en language"> En</a>
+                </div>
+            </div>
+        </nav>
+        <!-- End navbar-main -->
+
+        <section class="py-5">
+            <div class="container">
+
+                <div class="form-contetnt pt-lg-5 mt-lg-5" data-aos="fade-up">
+                    <div class="form-wizard">
+                        <form action="#!" method="post" class="needs-validation" novalidate>
+                            <div class="row justify-content-center  mb-5">
+                                <div class="col-xl-8">
+                                    <div class="text-center mb-5">
+                                        <h1 class="wizard-title text-second">תשלום עבור הקמת תוכנית עסקית</h1>
+                                        <p class="wizard-details mb-0">שימו לב! לא ניתן לבצע תשלום עם כרטיס נטען</p>
+                                        <p class="wizard-details">לצורך שמירה על פרטיותכם חברת לינובי אינה שומרת את פרטי אמצעי התשלום</p>
+                                        <h2 class="wizard-info text-primary">מלאו את פרטי כרטיס האשראי באמצעותו תרצו לשלם</h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-8">
+                                    <div class="form-group">
+                                        <label for="inputName">סוג תשלום</label>
+                                        <select class="form-control custom-select" name="" required>
+                                            <option value="">אשראי</option>
+                                            <option value="">אשראי</option>
+                                            <option value="">אשראי</option>
+                                            <option value="">אשראי</option>
+                                        </select>
+                                        <div class="invalid-feedback"> Validation message </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputName">שם בעל הכרטיס</label>
+                                        <input type="text" class="form-control " name="" id="" required>
+                                        <div class="invalid-feedback"> Validation message </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputName">ת.ז בעל הכרטיס 9 ספרות</label>
+                                        <input type="text" class="form-control " name="" id="" required>
+                                        <div class="invalid-feedback"> Validation message </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputName">מספר כרטיס אשראי</label>
+                                        <input type="text" class="form-control " name="" id="" required>
+                                        <div class="invalid-feedback"> Validation message </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-6">
+                                            <label for="inputName">תוקף כרטיס אשראי-שנה</label>
+                                            <input type="text" class="form-control " name="" id="" required>
+                                            <div class="invalid-feedback"> Validation message </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="inputName">תוקף כרטיס אשראי-חודש</label>
+                                            <input type="text" class="form-control " name="" id="" required>
+                                            <div class="invalid-feedback"> Validation message </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-10">
+                                            <button type="submit" class="btn btn-primary btn-block">בצע תשלום</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <img src="assets/img/pci-icon.svg" class="mr-3" alt="">
+                                        <span>שימו לב! לא ניתן לבצע תשלום עם כרטיס נטען</span>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <ul class="nav justify-content-center">
+                                            <li class="nav-item">
+                                                <a href="#!" class="nav-link px-1">
+                                                    <img src="assets/img/payment/verisign-icon.svg" alt="">
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#!" class="nav-link px-1">
+                                                    <img src="assets/img/payment/discover-icon.svg" alt="">
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#!" class="nav-link px-1">
+                                                    <img src="assets/img/payment/ae-icon.svg" alt="">
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#!" class="nav-link px-1">
+                                                    <img src="assets/img/payment/mc-icon.svg" alt="">
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#!" class="nav-link px-1">
+                                                    <img src="assets/img/payment/visa-icon.svg" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- script -->
+		<script src="assets/js/jquery-3.1.0.js" ></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<script src="assets/js/bootstrap-datepicker.min.js"></script>
+		<script src="assets/js/bootstrap-select.min.js"></script>
+		<script src="assets/js/bootstrap-tagsinput.min.js"></script>
+		<script src="assets/js/sweetalert2.js"></script>
+		<script src="assets/js/toastr.min.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script src="assets/js/custom.js"></script>
+
+        <script>
+            var i = 1;
+            $(".btn-add").on("click", function(){
+                var value_1 = $("#value_1");
+                if(value_1.val() != ""){
+                    var htmlDiv = '\
+                        <div class="form-inline justify-content-center align-items-center mb-3" id="formBoxId_'+ i +'">\
+                            <div class="form-group d-block">\
+                                <input type="text" class="form-control w-100" value="'+ value_1.val() +'" required> \
+                            </div>\
+                            <div class="btn-remove ml-3" onclick="remove_form_box('+ i +')">\
+                                <i class="fas fa-minus"></i>\
+                            </div>\
+                        </div>';
+                    $(".addition-form-box").append(htmlDiv);
+                    $("#value_1").val("").removeClass("is-invalid");
+                    i++;
+                } else {
+                    $("#value_1").addClass("is-invalid");
+                }
+            });
+
+            function remove_form_box(i){
+                $("#formBoxId_" + i).remove();
+            }
+        </script>
+	</body>
+</html>
