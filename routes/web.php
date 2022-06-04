@@ -57,6 +57,10 @@ Route::prefix('cms/admin')->middleware('auth:admin')->group(function () {
 Route::prefix('cms/admin')->middleware('auth:admin,clink')->group(function () {
     Route::resource('/clinks', clinkController::class);
     Route::resource('/members', memberController::class);
+    Route::resource('/phases', Phase1sController::class);
+    Route::post('update/phases1', 'Phase1sController@updateAjax')->name('update.phases1');
+
+
     Route::post('members/status', 'memberController@ajaxMemberStatus')->name('members.status');
     Route::get('/createMember/{id}', 'memberController@createMember')->name('createMember');
     Route::get('/medicines/{id}', 'memberController@indexMedic')->name('medicines');

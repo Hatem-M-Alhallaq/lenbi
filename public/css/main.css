@@ -1,0 +1,303 @@
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  font-size: 80px;
+  letter-spacing: 5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  margin-top: -2px;
+}
+
+
+.display-none {
+  display: none;
+}
+
+
+
+
+ul#menu-inner-site-menu {
+  font-size: 25px;
+}
+
+ul#menu-inner-site-menu a {
+  color: white;
+}
+
+ul#menu-inner-site-menu a:hover {
+  color: #cbcbcb;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.flex-content-center {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+h1 {
+  font-size: 60px !important;
+  line-height: 72px !important;
+  font-weight: 600 !important;
+  font-family: system-ui;
+}
+
+section.scrollable-section {}
+
+
+#menu-inner-site-menu a {
+  font-size: 26px;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer a {
+  color: white !important;
+}
+
+.inner-page {
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+
+
+
+#site-pop-left-side {
+  width: 16.66666667%;
+  left: 0;
+  top: 0;
+}
+
+#site-pop-right-side {
+  width: 83.33333333%;
+  right: 0;
+}
+
+#site-pop-right-side {
+  height: 100vh;
+}
+
+.section-image {
+  max-height: 70vh;
+}
+
+.rounded-centered-image-container {
+  width: 200px;
+  height: 200px;
+}
+
+#wizard-container label {
+  font-size: 17px;
+}
+
+.form-control {
+  background-color: #F0F0F0 !important;
+  border: none;
+  color: #BEBEBE !important;
+  font-size: 15px !important;
+}
+
+.btn {
+  font-size: 15px;
+}
+
+.btn-primary {
+  background-color: #3E3E3E !important;
+  border-color: #707070 !important;
+}
+
+.btn-secondary {
+  background-color: white !important;
+  border-color: #3E3E3E !important;
+  color: #3E3E3E;
+}
+
+
+#main.site-inner-page {
+  padding-top: 90px;
+  padding-bottom: 20px;
+  background-color: #F0F0F0;
+}
+
+#wizard-progress {}
+
+.rounded-container {
+  border-radius: 35px;
+}
+
+.wizard-item-container {
+  display: inline-block;
+  width: 33.3333%;
+}
+
+.wizard-item {
+  position: relative;
+}
+
+.svg-container {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 16px;
+  background: #EAEAEA;
+  z-index: 2;
+  position: relative;
+}
+
+.wizard-item.done .svg-container,
+.wizard-item.current .svg-container {
+  background-color: transparent;
+}
+
+.wizard-item.current .svg-container {
+  border: 2px solid #707070;
+}
+
+.wizard-item.done .svg-container {
+  padding: 0;
+}
+
+.wizard-item img.active,
+.wizard-item img.active {
+  display: none;
+}
+
+.wizard-item.done img.not-active,
+.wizard-item.current img.not-active {
+  display: none;
+}
+
+.wizard-item.done img.active,
+.wizard-item.current img.active {
+  display: block;
+}
+
+.wizard-item::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  background-color: #EAEAEA;
+  right: 0;
+  z-index: 1;
+}
+
+.step {
+  margin: auto;
+  height: 43vh;
+  float: left;
+  display: inline-block;
+}
+
+#wizard-container {
+  overflow: scroll;
+  width: 10000px;
+}
+
+.wizard-item.current::after,
+.wizard-item.done::after {
+  background-color: #3E3E3E;
+}
+
+.wizard-item-container:first-of-type .wizard-item::after {
+  width: 50%;
+}
+
+.svg-container>div {
+  border-radius: 16px;
+  padding: 8px;
+}
+
+.wizard-item.done .svg-container>div,
+.wizard-item.current .svg-container>div {
+  background-color: #3E3E3E;
+}
+
+#wizard-progress svg {
+  width: 50px;
+  height: 50px;
+}
+
+
+
+.svg-container.done svg {
+  padding: 7px;
+  background-color: #3E3E3E;
+}
+
+.wizard-item-container p {
+  font-size: 10px;
+}
+
+
+.inner-container {
+  width: 85%;
+}
+
+.select2-container--default .select2-selection--multiple {
+  background-color: #F0F0F0 !important;
+  border: none;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  margin: 0.5rem 1rem;
+}
+
+
+.image-upload-container {
+  border: 1px dashed #707070;
+}
+
+.theme-preview-image {
+  width: 24%;
+  margin-right: 1% !important;
+}
+
+.theme-preview-image:nth-of-type(1) {
+  padding-left: 0 !important;
+}
+
+.gray-background {
+  background-color: #F0F0F0;
+}
+
+#logo-input-container {
+  height: 77px;
+  width: 77px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#logo-input-container img {
+  cursor: pointer;
+}
+
+#logo-input-preview {
+  height: 100%;
+  width: 100%;
+  margin: 1px;
+}
+
+map {
+  height: 238px;
+  width: 100%;
+}
+
+
+.form-check-input:checked {
+  background-color: #3E3E3E;
+  border-color: #3E3E3E;
+}

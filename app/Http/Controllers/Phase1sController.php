@@ -24,7 +24,7 @@ class Phase1sController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.phases.edit');
     }
 
     /**
@@ -69,6 +69,10 @@ class Phase1sController extends Controller
      */
     public function update(Request $request, Phase1s $phase1s)
     {
+
+    }
+    public function updateAjax(Request $request)
+    {
         $data = $request->all() ;
         $validator = Validator($data, [
             'company_name' => 'required|string|min:3',
@@ -77,8 +81,8 @@ class Phase1sController extends Controller
         ]);
 
         if (!$validator->fails()) {
-
-         $$isSaved=  $phase1s->update($data);
+            $phase1s = Phase1s::find($data['phase1s_id']);
+             $isSaved=  $phase1s->update($data);
 
             if ($isSaved) {
                 return response()->json(['icon' => 'success', 'title' => 'Updated Success'], 200);
@@ -89,7 +93,6 @@ class Phase1sController extends Controller
             return response()->json(['icon' => 'error', 'title' => $validator->getMessageBag()->first()], 400);
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *
