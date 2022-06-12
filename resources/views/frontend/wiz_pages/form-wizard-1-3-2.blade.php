@@ -1,17 +1,17 @@
-@extends('layouts.leno_app')
+@extends('frontend.layouts.app')
 @section('content')
     <!-- navbar-main -->
     <nav class="navbar navbar-main navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.blade.php">
+            <a class="navbar-brand" href="{{route('frontend')}}">
                 <div class="logo">
-                    <img src="assets/img/logo.svg" alt="logo">
+                    <img src="{{asset('frontend/img/frontend/logo.svg')}}" alt="logo">
                 </div>
             </a>
 
             <div class="action d-flex align-items-center">
-                <a href="../auth/login.blade.php" class="btn btn-user mr-md-4 mr-3">
-                    <img src="assets/img/user.svg" class="mr-3" alt="">
+                <a href="#" class="btn btn-user mr-md-4 mr-3">
+                    <img src="{{asset('frontend/img/frontend/user.svg')}}" class="mr-3" alt="">
                     <span>כניסה לחשבון</span>
                 </a>
 

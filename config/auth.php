@@ -49,15 +49,11 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-        'clink' => [
+        'clients' => [
             'driver' => 'session',
-            'provider' => 'clinks',
+            'provider' => 'clients',
         ],
-
-        'user_api' => [
-            'driver' => 'passport',
-            'provider' => 'members',
-        ],
+ 
     ],
 
     /*
@@ -78,24 +74,14 @@ return [
     */
 
     'providers' => [
-
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
-        'users' => [
+        'clients' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\clients::class,
         ],
-        'clinks' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\clink::class,
-        ],
-        'members' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Member::class,
-        ],
-
     ],
 
 

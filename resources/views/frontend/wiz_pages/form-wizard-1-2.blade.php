@@ -3,15 +3,15 @@
     <!-- navbar-main -->
     <nav class="navbar navbar-main navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.blade.php">
+            <a class="navbar-brand" href="{{route('frontend')}}">
                 <div class="logo">
-                    <img src="assets/img/logo.svg" alt="logo">
+                    <img src="{{asset('frontend/img/frontend/logo.svg')}}" alt="logo">
                 </div>
             </a>
 
             <div class="action d-flex align-items-center">
-                <a href="../auth/login.blade.php" class="btn btn-user mr-md-4 mr-3">
-                    <img src="assets/img/user.svg" class="mr-3" alt="">
+                <a href="#" class="btn btn-user mr-md-4 mr-3">
+                    <img src="{{asset('frontend/img/frontend/user.svg')}}" class="mr-3" alt="">
                     <span>כניסה לחשבון</span>
                 </a>
 
@@ -39,12 +39,12 @@
             <div class="container">
                 <div class="nav nav-wizard">
                     <li class="nav-item">
-                        <a href="{{ route('frontend.ph1_1.create') }}" class="nav-link first">
+                        <a href="{{ route('phase1.index') }}" class="nav-link first">
                             <div class="nav-wizard-box"> תיאור העסק </div>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('frontend.ph1_2.create') }}" class="nav-link">
+                        <a href="{{ route('phase2.index',compact('app_id')) }}" class="nav-link">
                             <div class="nav-wizard-box">פרטי בעלות</div>
                         </a>
                     </li>
@@ -52,9 +52,9 @@
 
                 <div class="form-contetnt pt-lg-5" data-aos="fade-up">
                     <div class="form-wizard">
-                        <form action="{{ route('frontend.ph1_2.store') }}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+                        <form action="{{ route('phase2.store') }}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
                            @csrf
-                            <input type="hidden" name="app_id" value="1">
+                            <input type="hidden" name="app_id" value="{{$app_id}}">
                             <div class="row justify-content-center">
                                 <div class="col-xl-12">
                                     <div class="form-group text-center mb-5">
@@ -154,7 +154,7 @@
                             </div>
 
                             <div class="d-flex justify-content-center mt-5">
-                                <a href="{{route('frontend.plan')}}" class="btn btn-secondary mr-4">הקודם</a>
+                                <a href="{{ route('phase1.index')}}" class="btn btn-secondary mr-4">הקודם</a>
                                 <button type="submit" class="btn btn-secondary">הבא</button>
                             </div>
                         </form>

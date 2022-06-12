@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Phase1s extends Model
 {
     use HasFactory;
-    
+    protected $guarded = [];
     public function user()
     {
         return $this->morphTo();

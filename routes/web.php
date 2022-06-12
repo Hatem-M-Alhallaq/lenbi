@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\clinkAuthController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\Phase1sController;
+use App\Http\Controllers\Phase2sController;
 use App\Http\Controllers\UserAuthController;
 use App\Models\question_option;
 use Illuminate\Support\Facades\Auth;
@@ -17,25 +19,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-if (Auth::guard('admin')->check()) {
+Route::prefix('/')->middleware('guest:clients')->group(
+    function () {
+        //Route::resource('/', ClientController::class);
+        Route::get('/', [ClientController::class, 'index'])->name('frontend');
+        Route::post('register', [ClientController::class, 'store'])->name('frontend.register');
+        Route::get('verification', [ClientController::class, 'msg_v'])->name('frontend.msg_v');
+        Route::get('plane', [ClientController::class, 'plane'])->name('frontend.plane');
+        Route::post('verification_check', [ClientController::class, 'verification_check'])->name('frontend.user_check_validate');
+        Route::resource('/phase1', \Phase1sController::class);
+        //Route::resource('/phase2', \Phase2sController::class);
+        Route::get('phase2/{app_id}',  'Phase2sController@index')->name('phase2.index');
+        Route::post('phase2', [Phase2sController::class, 'store'])->name('phase2.store');
 
-    Route::get('/', function () {
-        return redirect(url('cms/admin'));
-    });
-} else {
-    Route::get('/', function () {return view('frontend.index');})->name('home');
+        Route::get('phase3/{app_id}',  'Phase3sController@index')->name('phase3.index');
+        Route::post('phase3',  'Phase3sController@store')->name('phase3.store');
 
-//     Route::get('/', function () {
-//         return redirect(url('/'));
-//     });
-}
-Route::prefix('')->middleware('guest:clink')->group(function () {
-    Route::get('', [clinkAuthController::class, 'showLogin'])->name('dashboard.login.clink');
-    Route::post('', [clinkAuthController::class, 'login']);
-});
+        Route::get('phase3a/{app_id}',  'Phase3sController@phase3a')->name('phase3a.index');
+        Route::get('phase3b/{app_id}',  'Phase3sController@phase3b')->name('phase3b.index');
+        Route::post('phase3a',  'Phase3sController@phase3a_store')->name('phase3a.store');
+
+    }
+);
+
+
 Route::prefix('/')->middleware('guest:admin')->group(function () {
-    Route::get('{guard}', [UserAuthController::class, 'showLogin'])->name('dashboard.login');
-    Route::post('{guard}', [UserAuthController::class, 'login']);
+    Route::get('admin', [UserAuthController::class, 'showLogin'])->name('dashboard.login');
+    Route::post('admin', [UserAuthController::class, 'login']);
 });
 
 Route::prefix('cms/admin')->middleware('auth:admin,clink')->group(function () {
@@ -46,8 +56,6 @@ Route::prefix('cms/admin')->middleware('auth:admin,clink')->group(function () {
     Route::get('profile/edit', [UserAuthController::class, 'editProfile'])->name('dashboard.auth.edit-profile');
     Route::put('profile/update', [UserAuthController::class, 'updateProfile'])->name('dashboard.auth.update-profile');
     Route::get('/', 'PagesController@index')->name('admin.dashboard');
-    Route::get('password/clink/reset/{id}', 'clinkController@showResetPasswordView')->name('showResetPasswordView');
-    Route::post('password/clink/reset', 'clinkController@resetPassword')->name('clink.password_reset');
 });
 Route::prefix('cms/admin')->middleware('auth:admin')->group(function () {
 
@@ -55,62 +63,16 @@ Route::prefix('cms/admin')->middleware('auth:admin')->group(function () {
     Route::post('password/admin/reset', 'AdminController@resetPassword')->name('admin.password_reset');
 });
 Route::prefix('cms/admin')->middleware('auth:admin,clink')->group(function () {
-    Route::resource('/clinks', clinkController::class);
-    Route::resource('/members', memberController::class);
-    Route::resource('/phases', Phase1sController::class);
-    Route::post('update/phases1', 'Phase1sController@updateAjax')->name('update.phases1');
 
+//    Route::resource('/phases', Phase1sController::class);
+//    Route::post('update/phases1', 'Phase1sController@updateAjax')->name('update.phases1');
 
-    Route::post('members/status', 'memberController@ajaxMemberStatus')->name('members.status');
-    Route::get('/createMember/{id}', 'memberController@createMember')->name('createMember');
-    Route::get('/medicines/{id}', 'memberController@indexMedic')->name('medicines');
-    Route::get('/deleteMedic/{id}', 'memberController@destroyMedic')->name('Medic-remove');
-    Route::get('/deleteRole/{id}', 'RoleController@delete')->name('role-remove');
-    Route::post('serach/member', 'memberController@serach')->name('search-member');
-
-    Route::get('/events/reports/xlsx', 'ReportsController@event_xlsx');
-    Route::get('/events/reports', 'ReportsController@event')->name('events-reports');
-    Route::get('/visitors/reports/xlsx', 'ReportsController@visitors_xlsx');
-    Route::get('/report/search', 'ReportsController@visitors')->name('visitors-reports');
-    Route::post('members/updates', 'memberController@updates')->name('members.updates');
-
-    Route::post('serach/visitor/reports', 'ReportsController@serachVisitor')->name('search-visitor-report');
-
-    Route::get('hospital/user', 'clinkController@indexUser')->name('hospital.user');
-
-    Route::get('/clink/user/create', 'clinkController@clink')->name('create-user');
-    Route::post('/clink/user', 'clinkController@user')->name('store-user');
-    Route::post('/events/store', 'eventController@update')->name('store-events');
-    Route::post('/medicine/store', 'memberController@storeMedic')->name('store-medicine');
-    Route::post('/checkIn/store', 'PagesController@check')->name('store-checkIn');
-
-    Route::resource('/events', eventController::class);
     Route::resource('/admins', AdminController::class);
     Route::resource('/roles', RoleController::class);
     Route::resource('/permissions', PermissionController::class);
     Route::resource('/role.permissions', RolePermissionController::class);
+});
 
-    Route::get('full-calender', 'PagesController@index')->name('full-calender');
-    Route::post('full-calender/action', 'PagesController@action')->name('full-calender.action');
-    Route::post('full-calender/store', 'PagesController@storeEvent')->name('full-calender.store');
-    Route::post('serach/event', 'eventController@serach')->name('search');
-});
-Route::get('/clear-cache', function () {
-    Artisan::call('cache:clear');
-    return "Cache is cleared";
-});
 Route::get('/datatables', 'PagesController@datatables')->name('datatables');
 
 Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search');
-//if (Auth::guard('admin')->check()) {
-//
-//    Route::get('/', function () {
-//        return redirect(url('cms/admin'));
-//    });
-//} else {
-//    Route::get('/', function () {return view('frontend.index');})->name('home');
-//
-////     Route::get('/', function () {
-////         return redirect(url('/'));
-////     });
-//}

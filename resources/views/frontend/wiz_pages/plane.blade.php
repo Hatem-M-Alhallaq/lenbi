@@ -3,15 +3,15 @@
     <!-- navbar-main -->
     <nav class="navbar navbar-main navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.blade.php">
+            <a class="navbar-brand" href="{{route('frontend')}}">
                 <div class="logo">
-                    <img src="assets/img/logo.svg" alt="logo">
+                    <img src="{{asset('frontend/img/frontend/logo.svg')}}" alt="logo">
                 </div>
             </a>
 
             <div class="action d-flex align-items-center">
-                <a href="../auth/login.blade.php" class="btn btn-user mr-md-4 mr-3">
-                    <img src="assets/img/user.svg" class="mr-3" alt="">
+                <a href="#" class="btn btn-user mr-md-4 mr-3">
+                    <img src="{{asset('frontend/img/frontend/user.svg')}}" class="mr-3" alt="">
                     <span>כניסה לחשבון</span>
                 </a>
 
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="px-5">
                                     <div class="form-group">
-                                        <a href="{{ route('frontend.ph1_1.create') }}" class="btn btn-primary btn-block shadow-sm mb-4">הקמת עסק חדש</a>
+                                        <a href="{{ route('phase1.index') }}" class="btn btn-primary btn-block shadow-sm mb-4">הקמת עסק חדש</a>
                                     </div>
                                     <div class="form-group">
                                         <a href="form-wizard-2-1.html" class="btn btn-primary btn-block shadow-sm">פיתוח עסק קיים</a>

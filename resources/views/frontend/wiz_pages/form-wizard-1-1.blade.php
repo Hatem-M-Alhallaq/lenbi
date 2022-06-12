@@ -3,15 +3,15 @@
     <!-- navbar-main -->
     <nav class="navbar navbar-main navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{route('frontend')}}">
                 <div class="logo">
-                    <img src="assets/img/logo.svg" alt="logo">
+                    <img src="{{asset('frontend/img/frontend/logo.svg')}}" alt="logo">
                 </div>
             </a>
 
             <div class="action d-flex align-items-center">
-                <a href="../auth/login.blade.php" class="btn btn-user mr-md-4 mr-3">
-                    <img src="assets/img/user.svg" class="mr-3" alt="">
+                <a href="#" class="btn btn-user mr-md-4 mr-3">
+                    <img src="{{asset('frontend/img/frontend/user.svg')}}" class="mr-3" alt="">
                     <span>כניסה לחשבון</span>
                 </a>
 
@@ -39,7 +39,7 @@
             <div class="container">
                 <div class="nav nav-wizard">
                     <li class="nav-item">
-                        <a href="{{ route('frontend.ph1_1.create') }}" class="nav-link first">
+                        <a href="{{ route('phase1.index') }}" class="nav-link first">
                             <div class="nav-wizard-box"> תיאור העסק </div>
                         </a>
                     </li>
@@ -47,7 +47,7 @@
 
                 <div class="form-contetnt pt-lg-5" data-aos="fade-up">
                     <div class="form-wizard">
-                        <form action="{{route('frontend.ph1_1.store')}}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+                        <form action="{{route('phase1.store')}}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
                             @csrf
                             <div class="row justify-content-center">
                                 <div class="col-xl-4 col-lg-8 col-md-10">

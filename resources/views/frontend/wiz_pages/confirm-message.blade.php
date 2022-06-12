@@ -3,15 +3,15 @@
     <!-- navbar-main -->
     <nav class="navbar navbar-main navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{route('frontend')}}">
                 <div class="logo">
-                    <img src="{{asset('/img/frontend/logo.svg')}}" alt="logo">
+                    <img src="{{asset('frontend/img/frontend/logo.svg')}}" alt="logo">
                 </div>
             </a>
 
             <div class="action d-flex align-items-center">
-                <a href="{{route('frontend.auth.login')}}" class="btn btn-user mr-md-4 mr-3">
-                    <img src="{{asset('/img/frontend/user.svg')}}" class="mr-3" alt="">
+                <a href="" class="btn btn-user mr-md-4 mr-3">
+                    <img src="{{asset('frontend/img/frontend/user.svg')}}" class="mr-3" alt="">
                     <span>כניסה לחשבון</span>
                 </a>
 
@@ -43,6 +43,7 @@
                             <div class="form-box p-lg-4">
                                 <form action="{{route('frontend.user_check_validate')}}" method="post" class="needs-validation" novalidate>
                                  @csrf
+
                                     <div class="form-group text-center">
                                         <h1 class="title-2"> שלחנו לכם קוד בהודעת SMS <br>
                                             נא להזין את הקוד שקיבלתם</h1>

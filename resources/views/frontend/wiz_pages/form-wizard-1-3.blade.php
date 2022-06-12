@@ -3,15 +3,15 @@
     <!-- navbar-main -->
     <nav class="navbar navbar-main navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.blade.php">
+            <a class="navbar-brand" href="{{route('frontend')}}">
                 <div class="logo">
-                    <img src="assets/img/logo.svg" alt="logo">
+                    <img src="{{asset('frontend/img/frontend/logo.svg')}}" alt="logo">
                 </div>
             </a>
 
             <div class="action d-flex align-items-center">
-                <a href="../auth/login.blade.php" class="btn btn-user mr-md-4 mr-3">
-                    <img src="assets/img/user.svg" class="mr-3" alt="">
+                <a href="#" class="btn btn-user mr-md-4 mr-3">
+                    <img src="{{asset('frontend/img/frontend/user.svg')}}" class="mr-3" alt="">
                     <span>כניסה לחשבון</span>
                 </a>
 
@@ -39,17 +39,17 @@
             <div class="container">
                 <div class="nav nav-wizard">
                     <li class="nav-item">
-                        <a href="form-wizard-1-1.blade.php" class="nav-link first">
+                        <a href="{{ route('phase1.index') }}" class="nav-link first">
                             <div class="nav-wizard-box"> תיאור העסק </div>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="form-wizard-1-2.blade.php" class="nav-link">
+                        <a href="{{ route('phase2.index',compact('app_id')) }}" class="nav-link">
                             <div class="nav-wizard-box">פרטי בעלות</div>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="form-wizard-1-3.blade.php" class="nav-link">
+                        <a href="{{ route('phase3.index',compact('app_id')) }}" class="nav-link">
                             <div class="nav-wizard-box">הסטוריית אשראי</div>
                         </a>
                     </li>
@@ -57,7 +57,10 @@
 
                 <div class="form-contetnt pt-lg-5" data-aos="fade-up">
                     <div class="form-wizard">
-                        <form action="form-wizard-1-2.blade.php" method="post" class="needs-validation" novalidate>
+                        <form action="{{ route('phase3.store') }}" method="post" class="needs-validation" novalidate>
+                           @csrf
+                             <input type="hidden" name="app_id" value="{{$app_id}}">
+                             <input type="hidden" name="have_you_prvieos" value="0">
                             <div class="row justify-content-center">
                                 <div class="col-xl-6 col-lg-8 col-md-10">
                                     <div class="form-group form-question text-center mb-5">
@@ -69,8 +72,9 @@
                             </div>
 
                             <div class="d-flex justify-content-center">
-                                <a href="#confirm_modal" data-toggle="modal" class="btn btn-primary mr-4">כן</a>
-                                <a href="form-wizard-1-3-1.blade.php" class="btn btn-primary">לא</a>
+                                <a href="#confirm_modal" data-toggle="modal" class="btn btn-primary mr-4 yse">כן</a>
+                                <button type="submit" class="btn btn-primary">לא</button>
+{{--                                <a href="{{route('phase3a.index',compact('app_id'))}}" class="btn btn-primary">לא</a>--}}
                             </div>
                         </form>
                     </div>
@@ -92,9 +96,10 @@
                     <div class="modal-body">
                         <div class="text-center form-wizard">
                             <h4 class="title text-danger py-4">בעקבות מידע זה, סיכויי אישור הבקשה שלך הם נמוכים, האם ברצונך להמשיך ?</h4>
+
                             <div class="d-flex justify-content-center mt-4">
-                                <a href="form-wizard-1-3-1.blade.php" class="btn btn-primary mr-4">כן</a>
-                                <a href="index.html" class="btn btn-primary">לא</a>
+                                <a href="{{route('phase3a.index',compact('app_id'))}}" class="btn btn-primary mr-4 ">כן</a>
+                                <a href="{{route('frontend')}}" class="btn btn-primary">לא</a>
                             </div>
                         </div>
                     </div>
